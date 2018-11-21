@@ -1,0 +1,36 @@
+---
+layout: post
+title:  "Notas sobre Autenticacion Yii2"
+date:   2018-10-27 20:44:53 -0300
+categories: node
+---
+# Setup
+
+Intalacion de yii2 base porque el proyecto va a ser solo api-rest
+
+composer create-project --prefer-dist yiisoft/yii2-app-basic auth
+
+./yii serve --port=8888
+
+en config/console y en config/web agregar la siguiente declaracion dentro d elos componentes
+
+'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+            // uncomment if you want to cache RBAC items hierarchy
+            // 'cache' => 'cache',
+        ],
+
+        Crar base de datos, en mi caso auth y configurar
+
+        correr las migraciones para crear las tablas necesarias
+
+Yii basico no viene con migraciones habilitada spor defecto, creamos la carpeta migrations en la raiz y copiamos el archivo de migraciones d eusuarios de la plantilla avanzada
+
+Luego con el siguiente comando podemos ejecutar la migracion
+
+./yii migrate --migrationPath=migrations
+
+y para la librearia de rbac 
+
+./yii migrate --migrationPath=@yii/rbac/migrations
+

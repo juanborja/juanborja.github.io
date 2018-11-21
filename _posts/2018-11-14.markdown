@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "Hola!"
+date:   2018-11-14 20:44:53 -0300
+categories: sin categoria
+---
+# Empezar proyecto con larvel con RBAC
+
+1. laravel new nombre_del_proyecto
+2. cd nombre_del_proyecto
+3. php artisan serve
+4. Creo la BD en workbench createdatabase nombre_de_la_BD
+5. En el .env de laravel configuro la bd
+6. ejecuto php artsan make:auth para generar el scaffolding de autenticaicon
+7. Ejecuto php artisan migrate para correr las migraciones d eusuario y crear las tablas
+8. Agregao la libreria de la dependencia para RBAC composer require spatie/laravel-permission
+9. Se copian las migraciones para roles y permisos php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"
+10. Se ejecuta php artisan migrate nuevamente para tablas de roles y permisos
+11. Se copia el archivo de permisos php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="config"
+
+

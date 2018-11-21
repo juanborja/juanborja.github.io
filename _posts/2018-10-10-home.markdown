@@ -1,0 +1,24 @@
+---
+layout: post
+title:  "Hola!"
+date:   2018-10-10 20:44:53 -0300
+categories: sin categoria
+---
+# Porque este blog?
+
+Porque pierdo tiempo buscando información o procedimientos en: mi computadora , backups, marcadores , proyectos viejos, mails, etc.
+
+# Para que?
+
+Para centralizar esos procedimientos relacionados - en general - al desarrollo de software y así evitar la  búsqueda y prueba repetitiva. 
+Para que otras personas puedan acceder a la información si así lo desean.
+
+# Entonces... que es?
+
+Un conjunto de _procedimientos y documentación_ organizados y escritos a _criterio personal_.
+
+# Que no es?
+
+Una guía definitiva de procedimientos oficiales correctamente redactados y detallados
+Un blog pensado para la consulta general -aunque todos lo pueden consultar.
+

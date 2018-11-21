@@ -1,0 +1,63 @@
+---
+layout: post
+title:  "Notas sobre node"
+date:   2018-10-12 20:44:53 -0300
+categories: node
+---
+# Entendiendo la sintaxis
+
+~~~js
+var http = require('http');
+
+http.createServer(function (request, response) {
+  response.writeHead(200, {'Content-Type': 'text/plain'});
+  response.end('Hello World\n');
+}).listen(8124);
+
+console.log('Server running at http://127.0.0.1:8124/');
+
+~~~
+Para manejar las dependencias node usa dos modulos, que estan incluidos en el nucleo mismo. 
+requiere y module ambos disponibles a nivel global sin necesidad de ser importados.
+
+# La directiva require
+
+~~~js
+const c = requiere('direccion/del/archivo');
+~~~
+
+Este objeto exportado por node es una funcion. Cuando node invoca esa funcion (con la ruta del archivo como unico argumento) realiza 5 acciones
+
+1. Resolver: Encontrar la direccion absoluta del archivo
+2. Cargar: Para determinar el tipo de contneido del archivo.
+3. Ajustar: Le da al archivo ambito privado. Hacen que el alcance de los archivos importados sea local
+4. Evaluacion: La maquina virtual evalauara eventualmente el contenido del modulo
+5. Cacheo: Pone el modulo en memoria para que este disponible para su uso posterior. 
+
+En el caso del ejemplo la directiva require esta "montando" el modulo http que posibilita nada mas y nada menos que realizar transferencias sobre el protocolo Hyper Text Transfer Protocol (HTTP). En esta directiva esta la esencia del funcionamiento de node
+
+
+# Levantando el servidor 
+
+Haciendo uso del modulo http, en particualar del metodo createServer podemos servir nuestra primera pagina en node
+
+~~~js
+http.createServer(function (request, response) {
+  response.writeHead(200, {'Content-Type': 'text/plain'});
+  response.end('Hello World\n');
+}).listen(8124);
+~~~
+
+Esta procion de codigo crea un objeto servidor que recibe una funcion como parametro, esta funcion sera ejecutada cada vez que se realice una peticion al servidor. En el paramtro request tendremos toda la informacion asoaciada a la peticion que se hizo al servidor (Por ejemplo, metodo: POST - GET - etc), url, etc. En la variable response configuraremos nuestra respuesta, por ejemplo cabeceras>
+
+~~~js
+response.writeHead(200, {'Content-Type': 'text/plain'});
+~~~
+
+https://medium.freecodecamp.org/requiring-modules-in-node-js-everything-you-need-to-know-e7fbd119be8
+
+https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/
+
+https://nodejs.org/api/http.html
+
+https://www.w3schools.com/nodejs/nodejs_http.asp
